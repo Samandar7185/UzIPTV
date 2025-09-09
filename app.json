@@ -1,0 +1,69 @@
+{
+  "name": "UzIPTV",
+  "description": "IPTV Playlist Search & Player Platform - Internetdan IPTV pleylistlarini qidiruvchi va ishga tushiruvchi platforma",
+  "repository": "https://github.com/yourusername/uziptv",
+  "logo": "https://cdn-icons-png.flaticon.com/512/3214/3214763.png",
+  "keywords": [
+    "iptv", 
+    "streaming", 
+    "playlist", 
+    "m3u", 
+    "television", 
+    "uzbekistan",
+    "flask",
+    "python"
+  ],
+  "website": "https://uziptv.herokuapp.com",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "python reset_db.py"
+  },
+  "env": {
+    "SECRET_KEY": {
+      "description": "A secret key for Flask application",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "Debug mode (set to False in production)",
+      "value": "False"
+    },
+    "HOST": {
+      "description": "Host to bind to",
+      "value": "0.0.0.0"
+    },
+    "PORT": {
+      "description": "Port to bind to",
+      "value": "8000"
+    },
+    "DATABASE_URL": {
+      "description": "Database URL (will be automatically set by Heroku)",
+      "required": false
+    },
+    "GITHUB_TOKEN": {
+      "description": "GitHub token for enhanced IPTV search (optional)",
+      "required": false
+    },
+    "MAX_SEARCH_RESULTS": {
+      "description": "Maximum search results to return",
+      "value": "50"
+    },
+    "SEARCH_TIMEOUT": {
+      "description": "Search timeout in seconds",
+      "value": "30"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
